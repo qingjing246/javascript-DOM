@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    body,h2,h3,ul,li,span,p{
+        margin: 0;
+        padding: 0;
+    }
+    li{
+        list-style: none;
+        margin-left:6px ;
+    }
+    h2{
+        font-size: 17px;
+    }
+    #box{
+        border: 1px solid black;
+        width: 500px;
+        height: 719px;
+        padding: 15px 20px;
+    }
+    #name{
+        width: 161px;
+        height:26px;
+        border-radius: 5px;
+        float: left;
+    }
+    img:hover{
+        border: 1px solid orange;
+    }
+    img{
+        width: 28px;
+        height: 28px;
+        cursor:pointer;
+        border: 1px solid white;
+    }
+    #userImg{
+        width: 300px;
+        float: left;
+        margin-left: 10px;
+    }
+    #face{
+        width: 480px;
+        height: 35px;
+        padding:  15px 0 15px 0;
+    }
+    #conBox{
+        width: 480px;
+        height: 100px;
+        resize: none;
+        border-radius: 5px;
+    }
+</style>
+<script>
+    window.onload = function (){
+        var oP = document.getElementById('userImg');
+        var oImg = oP.getElementsByTagName('img');
+        console.log(oImg);
+        for(var i = 0; i < oImg.length ;i++){
+            oImg[i].style.background = 'url("../img/face'+(i+1)+'.gif") ';
+            oImg[i].style.backgroundSize ='28px 28px';
+        }
+    }
+</script>
+<body>
+<div id="box">
+    <form action="">
+        <h2>说说你在做什么</h2>
+        <div id="face">
+
+                <input type="text" id="name"/>
+                <p id="userImg">
+                <img src="" alt=""/>
+                <img src="" alt=""/>
+                <img src="" alt=""/>
+                <img src="" alt=""/>
+                <img src="" alt=""/>
+                <img src="" alt=""/>
+                <img src="" alt=""/>
+                <img src="" alt=""/>
+            </p>
+        </div>
+        <div id="text">
+            <textarea name="textBox" id="conBox" ></textarea>
+        </div>
+        <div id="alert">
+            <p>
+            <span>还能输入</span>
+            <strong>140</strong>
+            <span>字</span>
+            <input type="button" />
+            </p>
+        </div>
+
+    </form>
+    <div id="list">
+        <h3>大家说</h3>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    body{
+        background:black;
+    }
+    #box{
+        position: absolute;
+        width: 200px;
+        height: 100px;
+        background: #2b669a;
+        border: 2px solid white;
+        left:40%;
+    }
+    h2{
+
+        text-decoration: none;
+        display: block;
+        width: 200px;
+        height: 30px;
+        background: #00ff25;
+        font-size: 14px;
+        line-height: 30px;
+        color: white;
+        cursor:pointer;
+    }
+    h2{
+
+        margin: 0;
+    }
+</style>
+<script>
+    window.onload = function (){
+        var oA = document.getElementsByTagName('h2')[0];
+        var oDiv = document.getElementById('box');
+        var oKey = null;
+        var i = 0;
+        var b = 0;
+        oA.onmousedown = function (event){
+            var ev = event|| window.event;
+            oKey = true;
+            b = ev.clientY - oDiv.offsetTop;
+            i = ev.clientX - oDiv.offsetLeft;
+            oDiv.style.left = oDiv.offsetLeft+'px';
+            oDiv.style.top = oDiv.offsetTop+'px';
+        };
+        oA.onmouseup = function (event){
+            var ev = event|| window.event;
+            oKey = false;
+            oDiv.style.left = ev.clientX-i+'px';
+            oDiv.style.top = ev.clientY-b+'px';
+
+        };
+        document.onmousemove = function (event){
+            var ev = event|| window.event;
+            if(oKey){
+                oDiv.style.left = ev.clientX-i+'px';
+                oDiv.style.top = ev.clientY-b+'px';
+            }
+        }
+
+    }
+</script>
+<body>1
+<div id="box">
+    <h2>点击拖拽</h2>
+
+</div>
+
+</body>
+</html>

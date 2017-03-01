@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    a{
+        text-decoration: none;
+    }
+    .box{
+        width: 150px;
+        height: 330px;
+        border:solid 1px #000000;
+        border-radius: 5px;
+        margin:0 auto  ;
+    }
+    input{
+        margin-left:10px ;
+    }
+    #link{
+        cursor: pointer;
+    }
+</style>
+<script>
+    window.onload=function(){
+        allChange("input","link");
+    };
+    function allChange(btn,link1){
+        var oBtn=document.getElementsByTagName(btn);
+        var oLink=document.getElementById(link1);
+        var Text=document.getElementById("text");
+        oBtn[0].onclick=function(){
+            for(var i=0;i<oBtn.length;i++){
+                if(oBtn[0].checked==true){
+                    oBtn[i].checked=true;
+                    Text.innerHTML="全不选";
+                }else{
+                    oBtn[i].checked=false;
+                    Text.innerHTML="全选";
+                }
+            }
+            };
+
+            oLink.onclick=function(){
+                for(var i=1;i<oBtn.length;i++) {
+                    oBtn[0].checked = false;
+                oBtn[i].checked=!oBtn[i].checked;
+            }
+        }
+    }
+
+    /*window.onload=function() {
+        var oA = document.getElementById("link");
+        var oInput = document.getElementsByTagName("input");
+        var Text=document.getElementById("text");
+        var allCheck=function(){
+            for(var i=0;i<oInput.length;i++){
+                oInput[i].checked&&n++
+            }
+            oInput[0].checked = n == oInput.length - 1;
+            Text.innerHTML=oInput[0].checked? "全不选":"全不选"
+        };
+        oInput[0].onclick=function(){
+            for(var i=0;i<oInput.length;i++){
+                oInput[i].checked=this.checked;
+            }
+            allCheck();
+        };
+        oA.onclick=function(){
+            for(var i=1;i<oInput.length;i++){
+                oInput[i].checked = !oInput[i].checked
+            }
+            allCheck();
+        };
+        for(var i = 1;i<oInput.length;i++){
+          oInput[i].onclick=function(){
+              allCheck();
+          }
+        }
+
+    }*/
+</script>
+<body>
+<div class="box">
+    <dl>
+        <dt><input type="checkbox"/>
+            <ladel id="text">全选</ladel>
+            <ladel id="link">反选</ladel></dt>
+        <p><input type="checkbox"/>
+            <ladel>选项一</ladel>
+        </p>
+        <p><input type="checkbox"/>
+            <ladel>选项一</ladel>
+        </p>
+        <p><input type="checkbox"/>
+            <ladel>选项一</ladel>
+        </p>
+        <p><input type="checkbox"/>
+            <ladel>选项一</ladel>
+        </p>
+        <p><input type="checkbox"/>
+            <ladel>选项一</ladel>
+        </p>
+        <p><input type="checkbox"/>
+            <ladel>选项一</ladel>
+        </p>
+        <p><input type="checkbox"/>
+            <ladel>选项一</ladel>
+        </p>
+        <p><input type="checkbox"/>
+            <ladel>选项一</ladel>
+        </p>
+
+    </dl>
+</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    #box{
+        width: 200px;
+        height: 200px;
+        margin: 200px auto;
+        background: red;
+        line-height: 200px;
+        text-align: center;
+    }
+</style>
+<script>
+    window.onload = function (){
+        var oDiv =document.getElementById('box');
+        var time = null;
+
+
+        oDiv.onclick = function (){
+            clearInterval(time);
+            var i =0;
+            time = setInterval(function(){
+                oDiv.style.display = i++ % 2? "none":"block";
+                i > 6 &&(clearInterval(time))
+            },100)
+        };
+
+
+    }
+</script>
+
+<body>
+    <div id="box">
+        点击
+    </div>
+</body>
+</html>

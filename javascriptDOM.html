@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    dl {
+        margin: 0;
+        padding: 0;
+    }
+
+    dd {
+        margin: 0;
+        padding: 0;
+    }
+
+    dt {
+        background: #99cc00;
+        width: 350px;
+        margin-top: 1px;
+        font-size: 14px;
+        padding-left: 15px;
+        color: white;
+        font-weight: bold;
+        line-height: 31px;
+        cursor: pointer;
+    }
+
+    #main {
+        border: 12px solid #eeeeee;
+        padding: 5px;
+        margin: 40px auto;
+        width: 365px;
+        border-radius: 10px;
+    }
+
+    #list-first {
+        margin-top: 0;
+    }
+
+    dd {
+        padding-left: 15px;
+        color: white;
+        line-height: 26px;
+        margin-top: 1px;
+        background: deepskyblue;
+        font-size: 13px;
+        display: none;
+    }
+    .bg{
+        background: red;
+    }
+
+    a {
+        color: white;
+        text-decoration: none;
+    }
+</style>
+<script>
+    window.onload = function () {
+        var oDl = document.getElementsByTagName('dl');
+        var oDt = document.getElementsByTagName('dt');
+        var oDd = document.getElementsByTagName('dd');
+        var oBox = document.getElementById('main');
+
+        var Obj = [];
+        change(oDd, 'none');
+        for (var i = 0; i < oDl.length; i++) {
+            var ddLength = oDl[i].getElementsByTagName('dd').length;
+            oDt[i].innerHTML = oDt[i].innerHTML + '(' + ddLength + ')';
+            oDl[i].onclick = function () {
+                var DD = this.getElementsByTagName('dd');
+                Obj.push(this);
+                if (Obj.length >= 2) {
+                    if (Obj[Obj.length - 1] == Obj[Obj.length - 2]) {
+                        for (var i = 0; i < DD.length; i++) {
+                            DD[i].style.display == 'none' ? DD[i].style.display = 'block' : DD[i].style.display = 'none';
+                        }
+                    } else {
+                        change(oDd, 'none');
+                        change(DD, 'block');
+                    }
+                    Obj.shift();
+                } else {
+                    change(DD, 'block');
+                }
+            }
+        }
+        function change(obj, att) {
+            for (var i = 0; i < obj.length; i++) {
+                obj[i].style.display = att;
+            }
+        }
+
+        oBox.addEventListener('mousemove',function(ev){
+            var ev = ev || window.event;
+            var target = ev.target || ev.srcElement;
+            if( target.nodeName.toLowerCase() == 'a'){
+                if(target.parentNode.nodeName.toLowerCase() == 'dd' ){
+                    target.parentNode.className = 'bg'
+                }
+            }else if( target.nodeName.toLowerCase() == 'dd'){
+                target.className = 'bg';
+            }
+        });
+        oBox.addEventListener('mouseout',function(ev){
+            var ev = ev || window.event;
+            var target = ev.target || ev.srcElement;
+            if( target.nodeName.toLowerCase() == 'a'){
+                if(target.parentNode.nodeName.toLowerCase() == 'dd' ){
+                    target.parentNode.className = ''
+                }
+            }else if( target.nodeName.toLowerCase() == 'dd'){
+                target.className = '';
+            }
+        })
+    }
+</script>
+<body>
+    <div id="main">
+        <dl class="list" id="list-first">
+            <dt>第一课</dt>
+            <dd><a href="01/01.html">(1) 改变DIV样式属性</a></dd>
+            <dd><a href="01/02.html">(2) 改变页面样式属性</a></dd>
+            <dd><a href="01/03.html">(3) 传参</a></dd>
+            <dd><a href="01/04.html">(4) 循环改变DIV颜色</a></dd>
+            <dd><a href="01/05.html">(5) 鼠标移入改变颜色</a></dd>
+            <dd><a href="01/06.html">(6) 提示框</a></dd>
+        </dl>
+        <dl class="list" >
+            <dt>第二课</dt>
+            <dd><a href="02/01.html">(1) 输入法</a></dd>
+            <dd><a href="02/02.html">(2) 点击DIV显示HTML</a></dd>
+            <dd><a href="02/03.html">(3) 求和</a></dd>
+            <dd><a href="02/04.html">(4) 弹出层效果</a></dd>
+            <dd><a href="02/05.html">(5) 函数传参，改变DIV任意属性值</a></dd>
+            <dd><a href="02/06.html">(6) 鼠标移入改变透明度</a></dd>
+            <dd><a href="02/07.html">(7) 简易选项卡</a></dd>
+            <dd><a href="02/08.html">(8) 简易年历</a></dd>
+            <dd><a href="02/09.html">(9) 复选框</a></dd>
+        </dl>
+        <dl class="list" >
+            <dt>第三课</dt>
+            <dd>1111</dd>
+            <dd>2222</dd>
+            <dd>333</dd>
+            <dd>444</dd>
+        </dl>
+        <dl class="list" >
+            <dt>第四课</dt>
+            <dd>1111</dd>
+            <dd>2222</dd>
+            <dd>333</dd>
+            <dd>444</dd>
+        </dl>
+        <dl class="list" >
+            <dt>第五课</dt>
+        </dl>
+
+    </div>
+</body>
+</html>

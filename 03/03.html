@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<script>
+    window.onload=function(){
+        var btn = document.getElementsByTagName("input")[0];
+        var i=0;
+        btn.onclick=function(){
+            ++i;
+            btn.value=i;
+            alert(i);
+
+        }
+    }
+
+
+</script>
+<body style="text-align: center">
+<input type="button" value="0" onclick="all()"/>
+</body>
+</html>

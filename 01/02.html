@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    body{
+        margin:0;
+        background: #4d804f;
+    }
+    .title{
+        width: 200px;
+        height: 20px;
+        margin:0 auto;
+    }
+    ul{
+        margin:0 auto;
+    }
+    .title li{
+        list-style-type: none;
+        float: left;
+        display: block;
+        width: 10px;
+        height: 10px;
+        margin-right: 10px;
+        cursor: pointer;
+        text-align: center;
+
+    }
+    #red{
+        border: solid 5px red;
+        background: red;
+    }
+    #blue{
+        border: solid 5px blue;
+        background: blue;
+    }
+    #green{
+        border: solid 5px green;
+        background: #FFFFFF;
+    }
+    .nav{
+
+        margin: 50px auto;
+        width: 500px;
+        height: 50px;
+
+    }
+    ul{
+        margin:0;
+        background: red;
+    }
+    .main-nav li{
+        list-style-type: none;
+        float: left;
+        display: block;
+        width: 80px;
+        height: 30px;
+        line-height: 30px;
+        font-weight: bold;
+        font-size: 20px;
+        border: solid 1px #fff;
+        text-align: center;
+        color: white;
+    }
+
+</style>
+<script>
+    function Bgred() {
+        document.getElementById("red").style.background = "red";
+    }
+    function Bgblue() {
+        document.getElementById("blue").style.background = "blue";
+    }
+    function Bggreen() {
+        document.getElementById("green").style.background = "green";
+    }
+    var AA = document.getElementsByClassName("aa");
+    var Body = document.getElementsByTagName('body')[0];
+
+
+    function Red() {
+        document.getElementById("red").style.background = "#ffffff";
+
+        for (var i = 0; i < AA.length; i++) {
+            AA[i].style.background = "red";
+        }
+        document.getElementsByTagName('body')[0].style.background = "#FF7D7B";
+        Bgblue();
+        Bggreen();
+
+    }
+    function blue() {
+        document.getElementById("blue").style.background = "#ffffff";
+        for (var i = 0; i < AA.length; i++) {
+            AA[i].style.background = "blue";
+        }
+        document.getElementsByTagName('body')[0].style.background = "#6085FF";
+        Bgred();
+        Bggreen();
+    }
+    function green() {
+        document.getElementById("green").style.background = "#ffffff";
+        for (var i = 0; i < AA.length; i++) {
+            AA[i].style.background = "green";
+        }
+        document.getElementsByTagName('body')[0].style.background = "#7BFF82";
+        Bgred();
+        Bgblue();
+    }
+</script>
+<body>
+    <div class="title">
+        <ul>
+            <li id="red" onclick="Red()">
+            </li>
+            <li id="blue" onclick="blue()">
+            </li>
+            <li id="green" onclick="green()">
+            </li>
+        </ul>
+    </div>
+    <div class="nav">
+        <ul class="main-nav">
+            <li class="aa">首页</li>
+            <li class="aa">新闻</li>
+            <li class="aa">娱乐</li>
+            <li class="aa">体育</li>
+            <li class="aa">文化</li>
+        </ul>
+    </div>
+</body>
+
+</html>

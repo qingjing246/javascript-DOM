@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<script>
+    window.onload=function(){
+        var Input=document.getElementsByTagName("input");
+        var fun=function(){
+            var valLen=Input[0].value.length;
+            if(valLen==2){
+               alert("√是两位数");
+            }else if(valLen==0){
+                alert("请输入数字");
+            }
+            else{
+                alert("是"+valLen+"位数");
+            }
+        };
+        Input[1].addEventListener("click",fun,false);
+    }
+</script>
+<body style="text-align: center">
+<input type="text" value=""/>
+<input type="button" value="是否为两位数"/>
+</body>
+</html>

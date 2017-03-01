@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<style>
+    ul{
+        list-style-type: none;
+    }
+    li{
+        display: block;
+        float: left;
+        margin: 10px;
+        border: solid 1px #000000;
+        cursor: pointer;
+        width: 50px;
+    }
+</style>
+<script>
+    window.onload=function(){
+        var list=document.getElementsByTagName("input")[0];
+
+        alert(eval(list.value))
+    }
+</script>
+<ul>
+    <li><a href="">1</a></li>
+    <li><a href="">2</a></li>
+    <input type="text" value="2+22"/>
+</ul>
+
+</body>
+</html>

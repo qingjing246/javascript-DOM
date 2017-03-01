@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    .top {
+        text-align: center;
+    }
+
+    #box {
+        width: 200px;
+        height: 200px;
+        background: black;
+        position: absolute;
+        left: 50%;
+        margin-left: -100px;
+        margin-top: 20px;
+        color: #FFFFFF;
+        padding: 10px;
+        font-size: 5px;
+    }
+
+</style>
+<script>
+
+
+    window.onload = function () {
+        var value = document.getElementsByTagName("input");
+        var btn = document.getElementsByTagName("button");
+        var Box = document.getElementById("box");
+
+        btn[0].addEventListener('click', function () {
+            Box.style[value[0].value] = value[1].value;
+        });
+        btn[1].addEventListener('click', function () {
+            Box.style.background = "black";
+            Box.style.color = "#ffffff"
+        })
+    }
+</script>
+
+<body>
+<div class="top" style="width: 300px ;margin: 0 auto">
+    <p class="name1">属性名：<input type="text" class="name" value="background"/></p>
+
+    <p class="value1">属性值：<input type="text" class="value" value="blue"/></p>
+    <button class="btn1">确定</button>
+    <button class="btn2">重置</button>
+</div>
+<div id="box">在上方输入框输入“属性名”及“属性值”</div>
+</body>
+</html>

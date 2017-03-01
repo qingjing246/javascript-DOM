@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    ul{
+        margin:0;
+        display: block;
+        padding: 0;
+        width: 208px;
+        height: 158px;
+
+    }
+    li{
+        display: block;
+        width:40px;
+        height: 40px;
+        list-style-type: none;
+        background: #160f12;
+        text-align: center;
+        float: left;
+        font-size: 14px;
+        margin:5px;
+        color: #FFFFFF;
+        cursor: pointer;
+        border: solid 1px #000000;
+    }
+    #box{
+        padding: 5px;
+        width: 208px;
+        height: 200px;
+        margin:  0 auto;
+        background: #eaeaea;
+    }
+    strong{
+        display: block;
+        font-size: 18px;
+        line-height: 20px;
+    }
+    .bg{
+        background: #FFFFFF;
+        color: indianred;
+    }
+    #text{
+
+        background: #f1f1f1;
+        border: solid 1px #ffffff;
+    }
+</style>
+<script>
+    window.onload=function(){
+        var Box=document.getElementById("text");
+        var Oli=document.getElementsByTagName("li");
+
+        var oArray = [
+            "元旦：1月1日至3日放假三天。",
+            "春节：2月2日至8日放假7天。",
+            "妇女节：3月8日妇女节，与我无关。",
+            "清明节：4月3日至5日放假3天",
+            "劳动节：4月30日至5月2日放假3天。",
+            "端午节：6月4日至6日放假3天。",
+            "小暑：7月7日小暑。不放假。",
+            "七夕节：8月6日七夕节。不放假。",
+            "中秋节：9月10日至12日放假3天。",
+            "国庆节：10月1日至7日放假7天。",
+            "立冬：11月8日立冬。不放假。",
+            "艾滋病日:12月1日<br />废除奴隶制国际日:12月2日。"
+        ];
+        Box.innerHTML=oArray[0]
+        for(var i=0;i<Oli.length;i++){
+                Oli[i].index=i;
+            Oli[i].onmouseover=function(){
+                for(var n=0;n<Oli.length;n++) {
+                    Oli[n].className = "";
+                    this.className = "bg";
+                    Box.innerHTML=oArray[this.index];
+                }
+            }
+        }
+
+
+    }
+
+
+</script>
+<body>
+    <div id="box">
+        <ul>
+            <li class="bg">
+                <strong>1</strong>JAN</li>
+            <li><strong>2</strong>FER</li>
+            <li><strong>3</strong>MAR</li>
+            <li><strong>4</strong>APR</li>
+            <li><strong>5</strong>MAY</li>
+            <li><strong>6</strong>JUN</li>
+            <li><strong>7</strong>JUL</li>
+            <li><strong>8</strong>AUG</li>
+            <li><strong>9</strong>SEP</li>
+            <li><strong>10</strong>OCT</li>
+            <li><strong>11</strong>NOV</li>
+            <li><strong>12</strong>DEC</li>
+
+        </ul>
+        <div id="text">
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    body{
+        text-align: center;
+        font: 100 100px/1.5 arial;
+    }
+
+</style>
+<script>
+    window.onload=function(){
+        var Body=document.getElementsByTagName("body")[0];
+        var i=0;
+            setInterval(function(){
+
+                Body.innerHTML=++i;
+            },1000);
+
+    }
+</script>
+<body>
+
+</body>
+</html>

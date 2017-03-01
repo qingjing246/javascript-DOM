@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    .box{
+        width: 298px;
+        height: 390px;
+        background: #000000;
+        margin: 0 auto;
+        position: relative;
+        line-height: 20px;
+    }
+    #show{
+        width: 298px;
+        height: 60px;
+        background: #BEBEBE;
+        line-height: 60px;
+        text-align: right;
+        font-size: 30px;
+        display: block;
+        border: 0;
+
+    }
+    #top-show{
+        width: 298px;
+        height: 20px;
+        background: #ff5c02;
+        text-align: right;
+        display: block;
+        border: 0;
+
+    }
+    .top{
+        width: 298px;
+        height: 20px;
+
+    }
+    .btn{
+        float: left;
+        height: 36px;
+        width: 54px;
+        display: block;
+        margin: 10px;
+        border-radius: 3px;
+        font-size: 30px;
+        line-height: 30px;
+        text-align: center;
+        cursor: pointer;
+    }
+    #all{
+        height: 90px;
+    }
+    #ling{
+        position: absolute;
+        top:325px;
+        width: 124px;
+    }
+    #dian{
+        position: absolute;
+        top:325px;
+        left:148px;
+    }
+    .fuhao{
+        background: #3b1d05;
+    }
+    .nbr{
+        background: #5f5750;
+    }
+    .denghao{
+        background: #b04f08;
+    }
+    .fuhao:hover{
+        background: #3B2B03;
+    }
+    .nbr:hover{
+        background: #918982;
+    }
+</style>
+<script>
+    window.onload=function(){
+        /*var all=document.getElementsByClassName("btn");
+        var xianshi=document.getElementById("show");
+        var fuHao=document.getElementsByClassName("fuhao");
+        var xianshi1=document.getElementById("show-top");
+        var btn=document.getElementsByTagName("input");
+        var val=new Array;
+        for(var i=0;i<btn.length;i++){
+            btn[i].addEventListener("click",function(){
+                val.push(this.value);
+                xianshi.innerHTML=val.join("");
+                if(this.value=="+"){
+                    xianshi.innerHTML="";
+                    xianshi1.innerHTML=val.join("");
+                }else if(this.value=="-"){
+                    xianshi.innerHTML="";
+                    xianshi1.innerHTML=val.join("");
+                }else if(this.value=="*"){
+                    xianshi.innerHTML="";
+                    xianshi1.innerHTML=val.join("");
+                }else if(this.value=="/"){
+                    xianshi.innerHTML="";
+                    xianshi1.innerHTML=val.join("");
+                }else if(this.value=="%"){
+                    xianshi.innerHTML="";
+                    xianshi1.innerHTML=val.join("");
+                }else if(this.value=="C"){
+                    xianshi.innerHTML="0";
+                    xianshi1.innerHTML="";
+                }
+            },false)
+        }*/
+        var all=document.getElementsByClassName("btn");
+        var ainput=document.getElementById("top-show");
+        var binput=document.getElementById("show");
+        var s=false;
+        for(var i=0;i<all.length;i++){
+            all[i].onclick=function(){
+
+                switch(this.value){
+                    case"C":
+                        binput.value=0; //初始显示数字
+                        ainput.value="";
+                        break;
+                    case "%":
+                        count("%");
+                        break;
+                    case "/":
+                        count("/");
+                        break;
+                    case "-":
+                        count("-");
+                        break;
+                    case "*":
+                        count("*");
+                        break;
+                    case "+":
+                        count("+");
+                        break;
+                    case "=":
+                        s || (ainput.value += binput.value);
+                        binput.value = eval(ainput.value.replace(/\%\/\*\-\+/,''));
+                        binput.value = binput.value.substr(0,10).replace("NaN",0);
+                        s = true;
+                        break;
+                    case ".":
+                        if(binput.value.search(/[\.\%\/\*\-\+]/) != -1)
+                            break;
+                    default:
+                        s && (binput.value = 0, ainput.value = "", s = false);
+                            //位数小于10
+                        binput.value.length < 10 && (binput.value = (binput.value + this.value).replace(/^[0\%\/\*\-\+](\d)/,"$1"));
+
+                }
+            }
+        }
+        function count(a){
+            if(s){
+                ainput.value=binput.value+a;
+                binput.value=a;
+                s=false;
+            }else{
+                //输入中末尾有运算符，那么结果显示运算符加数字
+                /[\%\/\*\-\+]$/.test(binput.value)||(ainput.value+=binput.value);
+                //输入显示当前的运算符
+                binput.value=a;
+                //结果显示末尾有运算符，结果显示结果
+                /[\%\/\*\-\+]$/.test(ainput.value)||(ainput.value+=binput.value);
+
+                //ainput.value=ainput.value.slice(-1)!=a ? ainput.value.replace(/.$/,a) : ainput.value;
+            }
+        }
+    }
+</script>
+<body>
+    <div class="box">
+        <div class="top">
+
+        </div>
+        <input type="text" id="top-show" readonly="readonly" value/>
+        <input type="text" id="show" readonly="readonly" value="0"/>
+        <input class="btn" type="button" value="C"/>
+        <input class="btn" type="button" value="%"/>
+        <input class="btn" type="button" value="/"/>
+        <input class="btn" type="button" value="*"/>
+        <input class="btn" type="button" value="1"/>
+        <input class="btn" type="button" value="2"/>
+        <input class="btn" type="button" value="3"/>
+        <input class="btn" type="button" value="-"/>
+        <input class="btn" type="button" value="4"/>
+        <input class="btn" type="button" value="5"/>
+        <input class="btn" type="button" value="6"/>
+        <input class="btn" type="button" value="+"/>
+        <input class="btn" type="button" value="7"/>
+        <input class="btn" type="button" value="8"/>
+        <input class="btn" type="button" value="9"/>
+        <input class="btn" id="all" type="button" value="="/>
+        <input class="btn" id="ling" type="button" value="0"/>
+        <input class="btn" id="dian" type="button" value="."/>
+    </div>
+
+</body>
+</html>

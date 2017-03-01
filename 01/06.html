@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    .alert {
+        border: solid 1px #ff5c02;
+        background: #ffbb68;
+        padding: 5px;
+        width: 200px;
+        font-size: 12px;
+        margin-left: 44%;
+        display: none;
+    }
+
+</style>
+<script>
+    window.onload = function () {
+        var Input = document.getElementsByTagName("p")[0];
+        var Div = document.getElementsByClassName("alert")[0];
+        Input.onmousemove = function () {
+            Div.style.display = "block";
+        };
+        Input.onmouseout = function () {
+            Div.style.display = "none";
+        }
+    }
+</script>
+<body style="text-align: center">
+<p><input type="checkbox">两周内自动登录</p>
+<div class="alert">
+    为了你的安全，请不要再网吧或公用电脑上使用此功能！
+</div>
+</body>
+</html>
